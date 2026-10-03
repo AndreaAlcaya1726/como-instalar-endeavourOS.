@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manual de instalación de EndeavourOS</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #24292f;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        nav a {
+            color: #24292f;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #7b3ff2;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #24292f;
+            border-bottom: 3px solid #7b3ff2;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #5b2bbd;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tarjeta {
+            background: #f4f6f8;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #7b3ff2;
+        }
+
+        .advertencia {
+            background: #fff3cd;
+            border-left: 6px solid #ffc107;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .importante {
+            background: #f8d7da;
+            border-left: 6px solid #dc3545;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        code {
+            background: #eee;
+            padding: 3px 7px;
+            border-radius: 5px;
+        }
+
+        pre {
+            background: #24292f;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #24292f;
+            color: white;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #7b3ff2;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background: #5b2bbd;
+        }
+
+        footer {
+            background: #24292f;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #ffffff;
+        }
+
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                display: block;
+                margin: 8px;
+            }
+
+            section {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🐧 Manual de instalación de EndeavourOS</h1>
+    <p>
+        Guía paso a paso para preparar, instalar y configurar
+        EndeavourOS, una distribución de Linux basada en Arch Linux.
+    </p>
+
+    <a href="#inicio" class="boton">Comenzar el manual</a>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#que-es">¿Qué es?</a>
+    <a href="#requisitos">Requisitos</a>
+    <a href="#preparacion">Preparación</a>
+    <a href="#instalacion">Instalación</a>
+    <a href="#post">Después de instalar</a>
+    <a href="#problemas">Problemas</a>
+    <a href="#fuentes">Fuentes</a>
+</nav>
+
+<main>
+
+<section id="inicio">
+    <h2>👋 Bienvenido</h2>
+
+    <p>
+        Este manual explica el proceso de instalación de EndeavourOS
+        desde la preparación del equipo hasta la configuración inicial
+        del sistema operativo.
+    </p>
+
+    <p>
+        La guía está organizada para que el usuario pueda seguir cada
+        etapa de manera sencilla y consultar las recomendaciones antes
+        de realizar cambios en el equipo.
+    </p>
+</section>
+
+<section id="que-es">
+    <h2>🐧 ¿Qué es EndeavourOS?</h2>
+
+    <p>
+        EndeavourOS es una distribución de Linux basada en Arch Linux.
+        Busca conservar las capacidades de Arch Linux ofreciendo una
+        instalación más sencilla mediante el instalador Calamares.
+    </p>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <h3>🔄 Rolling Release</h3>
+            <p>
+                Utiliza un modelo de actualización continua en lugar
+                de versiones estáticas tradicionales.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>💻 Código abierto</h3>
+            <p>
+                Es un sistema de código abierto basado en tecnologías
+                del ecosistema Linux.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>📦 Pacman</h3>
+            <p>
+                Utiliza Pacman como principal gestor de paquetes.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>🛠️ Basado en Arch</h3>
+            <p>
+                Utiliza Arch Linux como base y permite un amplio
+                control mediante la terminal.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="requisitos">
+    <h2>💻 Requisitos de hardware</h2>
+
+    <p>
+        Antes de comenzar la instalación es necesario comprobar que
+        el equipo cuenta con los recursos necesarios.
+    </p>
+
+    <table>
+        <tr>
+            <th>Componente</th>
+            <th>Mínimo</th>
+            <th>Recomendado</th>
+        </tr>
+
+        <tr>
+            <td>Memoria RAM</td>
+            <td>2 GB offline / 3 GB online</td>
+            <td>4 GB o más</td>
+        </tr>
+
+        <tr>
+            <td>Procesador</td>
+            <td>Intel o AMD de 64 bits</td>
+            <td>Intel i3 o equivalente</td>
+        </tr>
+
+        <tr>
+            <td>Almacenamiento</td>
+            <td>15–20 GB</td>
+            <td>40–50 GB</td>
+        </tr>
+
+        <tr>
+            <td>Pantalla</td>
+            <td>1024 × 768</td>
+            <td>Mayor resolución</td>
+        </tr>
+
+        <tr>
+            <td>USB</td>
+            <td>1 puerto</td>
+            <td>1 puerto disponible</td>
+        </tr>
+    </table>
+
+    <div class="advertencia">
+        <strong>⚠️ Recomendación:</strong>
+        realiza una copia de seguridad de tus archivos importantes
+        antes de modificar las particiones del disco.
+    </div>
+</section>
+
+<section id="preparacion">
+    <h2>🧰 Preparación</h2>
+
+    <h3>Material necesario</h3>
+
+    <ul>
+        <li>Una computadora compatible.</li>
+        <li>Una memoria USB.</li>
+        <li>Conexión a Internet.</li>
+        <li>Imagen ISO de EndeavourOS.</li>
+        <li>Programa para crear un USB booteable.</li>
+        <li>Copia de seguridad de los archivos importantes.</li>
+    </ul>
+
+    <h3>Descargar EndeavourOS</h3>
+
+    <p>
+        Descarga la imagen ISO desde el sitio oficial de EndeavourOS.
+    </p>
+
+    <a
+        href="https://endeavouros.com/"
+        target="_blank"
+        class="boton">
+        Sitio oficial de EndeavourOS
+    </a>
+
+    <h3>Crear el USB de instalación</h3>
+
+    <p>
+        Después de descargar la ISO, utiliza una herramienta como
+        Rufus para escribir la imagen en la memoria USB.
+    </p>
+
+    <div class="importante">
+        <strong>⚠️ Atención:</strong>
+        el proceso de creación del USB puede eliminar los archivos
+        almacenados en la memoria. Comprueba que no contenga información
+        importante.
+    </div>
+</section>
+
+<section id="instalacion">
+    <h2>⚙️ Instalación paso a paso</h2>
+
+    <h3>1. Iniciar desde el USB</h3>
+
+    <p>
+        Reinicia el equipo y selecciona la memoria USB desde el menú
+        de arranque o desde la configuración UEFI.
+    </p>
+
+    <h3>2. Seleccionar idioma</h3>
+
+    <p>
+        Selecciona el idioma que deseas utilizar durante la instalación.
+    </p>
+
+    <h3>3. Configurar región y teclado</h3>
+
+    <p>
+        Selecciona la región y la distribución de teclado correspondiente
+        a tu equipo.
+    </p>
+
+    <h3>4. Conectarse a Internet</h3>
+
+    <p>
+        Para una instalación online se recomienda disponer de conexión
+        a Internet.
+    </p>
+
+    <h3>5. Seleccionar el tipo de instalación</h3>
+
+    <p>
+        EndeavourOS permite realizar una instalación online o utilizar
+        la modalidad offline cuando sea necesario.
+    </p>
+
+    <h3>6. Elegir entorno de escritorio</h3>
+
+    <p>
+        Selecciona el entorno de escritorio disponible que prefieras.
+        Entre las opciones utilizadas en el ecosistema de EndeavourOS
+        se encuentran KDE Plasma, GNOME y XFCE.
+    </p>
+
+    <h3>7. Configurar las particiones</h3>
+
+    <p>
+        Selecciona el disco donde se instalará EndeavourOS y configura
+        las particiones necesarias.
+    </p>
+
+    <div class="importante">
+        <strong>⚠️ MUY IMPORTANTE:</strong>
+        verifica cuidadosamente el disco seleccionado antes de borrar
+        o formatear particiones. Una selección incorrecta puede provocar
+        pérdida de datos.
+    </div>
+
+    <h3>8. Crear el usuario</h3>
+
+    <p>
+        Introduce el nombre del usuario, nombre del equipo y una
+        contraseña segura.
+    </p>
+
+    <h3>9. Revisar el resumen</h3>
+
+    <p>
+        Antes de comenzar la instalación revisa cuidadosamente las
+        opciones seleccionadas.
+    </p>
+
+    <h3>10. Comenzar la instalación</h3>
+
+    <p>
+        Confirma la instalación y espera mientras el instalador copia
+        los archivos y configura el sistema.
+    </p>
+</section>
+
+<section id="post">
+    <h2>🚀 Después de instalar</h2>
+
+    <h3>Primer arranque</h3>
+
+    <p>
+        Cuando termine la instalación, reinicia el equipo y retira
+        la memoria USB cuando corresponda.
+    </p>
+
+    <h3>Actualizar el sistema</h3>
+
+    <p>
+        Como EndeavourOS utiliza un modelo Rolling Release, es importante
+        mantener actualizado el sistema.
+    </p>
+
+    <pre>sudo pacman -Syu</pre>
+
+    <h3>Instalar programas</h3>
+
+    <p>
+        Pacman permite instalar paquetes desde los repositorios.
+    </p>
+
+    <pre>sudo pacman -S nombre-del-paquete</pre>
+
+    <h3>Ejemplo</h3>
+
+    <pre>sudo pacman -S firefox</pre>
+</section>
+
+<section id="problemas">
+    <h2>🆘 Solución de problemas</h2>
+
+    <h3>El USB no inicia</h3>
+
+    <ul>
+        <li>Comprueba que la ISO se haya descargado correctamente.</li>
+        <li>Vuelve a crear el USB booteable.</li>
+        <li>Comprueba la configuración UEFI/BIOS.</li>
+        <li>Prueba otro puerto USB.</li>
+    </ul>
+
+    <h3>No hay conexión a Internet</h3>
+
+    <ul>
+        <li>Comprueba la conexión Wi-Fi o Ethernet.</li>
+        <li>Comprueba que el adaptador de red sea reconocido.</li>
+        <li>Si es necesario, considera utilizar la instalación offline.</li>
+    </ul>
+
+    <h3>Problemas con el disco</h3>
+
+    <p>
+        Comprueba que el disco sea reconocido correctamente antes
+        de modificar las particiones.
+    </p>
+</section>
+
+<section id="fuentes">
+    <h2>📚 Fuentes</h2>
+
+    <ul>
+        <li>
+            <a href="https://endeavouros.com/" target="_blank">
+                Sitio oficial de EndeavourOS
+            </a>
+        </li>
+
+        <li>
+            <a href="https://discovery.endeavouros.com/" target="_blank">
+                EndeavourOS Discovery
+            </a>
+        </li>
+
+        <li>
+            <a href="https://wiki.archlinux.org/" target="_blank">
+                ArchWiki
+            </a>
+        </li>
+
+        <li>
+            DistroWatch – EndeavourOS
+        </li>
+
+        <li>
+            IONOS – EndeavourOS: el sucesor de Antergos
+        </li>
+    </ul>
+
+    <p>
+        También se utilizó como fuente base el documento proporcionado
+        para la elaboración de este manual.
+    </p>
+</section>
+
+</main>
+
+<footer>
+    <p>🐧 Manual de instalación de EndeavourOS</p>
+    <p>Proyecto académico</p>
+</footer>
+
+</body>
+</html>
